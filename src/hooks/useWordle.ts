@@ -1,17 +1,21 @@
 import { useState } from 'react'
 
 const useWordle = (solution: String) => {
-  const [turn, setTurn] = useState<number>(0)
-  const [currentGuess, setCurrentGuess] = useState<string>('')
-  const [guesses, setGuesses] = useState<string[][]>([])
-  const [history, setHistory] = useState<string[]>(['hello', 'ninja'])
-  const [isCorrect, setIsCorrect] = useState<boolean>(false)
-
   type LetterObject = {
     key: string
     color: 'grey' | 'green' | 'yellow'
   }
 
+  const [turn, setTurn] = useState<number>(0)
+  const [currentGuess, setCurrentGuess] = useState<string>('')
+  const [guesses, setGuesses] = useState<LetterObject[][]>(
+    Array.from({ length: 6 }, () => [])
+  )
+  const [history, setHistory] = useState<string[]>(['hello', 'ninja'])
+  const [isCorrect, setIsCorrect] = useState<boolean>(false)
+
+  // format a guess into an array of letter objects
+  // e.g. [{key: 'a', color: 'yellow'}]
   const formatGuess = (): LetterObject[] => {
     const solutionArray = [...solution] // array of solution letters
     const formattedGuess: LetterObject[] = [...currentGuess].map((letter) => {
@@ -37,6 +41,25 @@ const useWordle = (solution: String) => {
     return formattedGuess
   }
 
+  // add a new guess to the guesses state
+  // update the isCorrect state if the guess is correct
+  // add one to the turn state
+  const addNewGuess = (formattedGuess: LetterObject[]) => {
+    if (currentGuess === solution) {
+      setIsCorrect(true)
+    }
+
+    setGuesses((prevGuesses) => {
+      const newGuesses = [...prevGuesses]
+      newGuesses[turn] = formattedGuess
+      return newGuesses
+    })
+
+    setHistory((prevHistory) => [...prevHistory, currentGuess])
+    setTurn((prevTurn) => prevTurn + 1)
+    setCurrentGuess('')
+  }
+
   // handle keyup event and track current guess
   // if user presses enter, add the new guess to the guesses array
   // if user presses backspace, remove the last letter from the current guess
@@ -58,7 +81,7 @@ const useWordle = (solution: String) => {
         return
       }
       const formatted = formatGuess()
-      console.log(formatted)
+      addNewGuess(formatted)
     }
 
     if (key === 'Backspace') {

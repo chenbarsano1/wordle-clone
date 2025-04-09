@@ -6,7 +6,8 @@ type WordleProps = {
 }
 
 export default function Wordle({ solution }: WordleProps) {
-  const { currentGuess, handleKeyup } = useWordle(solution)
+  const { currentGuess, handleKeyup, guesses, turn, isCorrect } =
+    useWordle(solution)
 
   useEffect(() => {
     window.addEventListener('keyup', handleKeyup)
@@ -14,6 +15,10 @@ export default function Wordle({ solution }: WordleProps) {
       window.removeEventListener('keyup', handleKeyup)
     }
   }, [handleKeyup])
+
+  useEffect(() => {
+    console.log(guesses, turn, isCorrect)
+  }, [guesses, turn, isCorrect])
 
   return (
     <div>
