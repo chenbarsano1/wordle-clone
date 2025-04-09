@@ -15,5 +15,10 @@ export default function Wordle({ solution }: WordleProps) {
     }
   }, [handleKeyup])
 
-  return <div>Current Guess - {currentGuess} </div>
+  return (
+    <div>
+      <div>Solution - {solution}</div>
+      <div>Current Guess - {currentGuess}</div>
+    </div>
+  )
 }
