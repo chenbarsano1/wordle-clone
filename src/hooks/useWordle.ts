@@ -1,11 +1,7 @@
 import { useState } from 'react'
+import { LetterObject } from '../types'
 
 const useWordle = (solution: String) => {
-  type LetterObject = {
-    key: string
-    color: 'grey' | 'green' | 'yellow'
-  }
-
   const [turn, setTurn] = useState<number>(0)
   const [currentGuess, setCurrentGuess] = useState<string>('')
   const [guesses, setGuesses] = useState<LetterObject[][]>(
