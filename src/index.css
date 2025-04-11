@@ -31,7 +31,8 @@ body {
   line-height: 60px;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 2.5em;
+  font-size: 2em;
+  font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .row > div.green {
@@ -66,6 +67,24 @@ body {
   animation: bounce 0.1s ease-in-out forwards;
 }
 
+.keypad {
+  max-width: 500px;
+  margin: 20px auto;
+}
+.keypad > div {
+  margin: 4px;
+  width: 40px;
+  height: 50px;
+  background: #d3d6da;
+  display: inline-block;
+  border-radius: 4px;
+  line-height: 50px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 /* keyframe animations */
 @keyframes flip {
   0% {
@@ -92,11 +111,11 @@ body {
 }
 
 @keyframes bounce {
-  0% { 
+  0% {
     transform: scale(1);
     border-color: #ddd;
   }
-  50% { 
+  50% {
     transform: scale(1.1);
   }
   100% {
