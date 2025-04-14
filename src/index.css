@@ -100,6 +100,163 @@ body {
   transition: all 0.3s ease-in;
 }
 
+/* Modal styling */
+.modal {
+  background: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.modal div.modal-content {
+  max-width: 480px;
+  width: 85%;
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  padding: 2.5rem;
+  border-radius: 16px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transform: translateY(0);
+  animation: modalAppear 0.5s ease-out forwards;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.modal h1 {
+  margin-top: 0;
+  font-family: 'Zilla Slab', serif;
+  font-weight: 700;
+  color: #1a1a1a;
+  font-size: 2.2rem;
+}
+
+/* Solution word display */
+.solution-row {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.solution-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  margin: 0 2px;
+  /* border-radius: 2px; */
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #fff;
+  background: #6aaa64;
+  /* box-shadow: 0 2px 8px rgba(106, 170, 100, 0.4); */
+  animation: revealLetter 0.5s ease forwards;
+}
+
+.modal p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 1rem 0;
+  font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Win/lose specific styling */
+.modal div.win {
+  background: linear-gradient(145deg, #ffffff, #f0fff0);
+  border-left: 5px solid #6aaa64;
+}
+
+.modal div.lose {
+  background: linear-gradient(145deg, #ffffff, #fff5f5);
+  border-left: 5px solid #ff004c;
+}
+
+.lose .solution-letter {
+  background: #ff004c;
+  /* box-shadow: 0 2px 8px rgba(255, 0, 76, 0.4); */
+}
+
+/* Animation for modal appearance */
+@keyframes modalAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for letter reveal */
+@keyframes revealLetter {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+/* Staggered delay for letter animations */
+.solution-letter:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.solution-letter:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.solution-letter:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.solution-letter:nth-child(4) {
+  animation-delay: 0.7s;
+}
+.solution-letter:nth-child(5) {
+  animation-delay: 0.9s;
+}
+
+/* Button styling for refresh or play again */
+.modal button {
+  background: #6aaa64;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  /* border-radius: 8px; */
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(106, 170, 100, 0.3);
+}
+
+.modal button:hover {
+  background: #5c9957;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(106, 170, 100, 0.4);
+}
+
+.modal button.lose {
+  background: #787c7e;
+  box-shadow: 0 4px 12px rgba(120, 124, 126, 0.3);
+}
+
+.modal button.lose:hover {
+  background: #666a6c;
+  box-shadow: 0 6px 14px rgba(120, 124, 126, 0.4);
+}
+
 /* keyframe animations */
 @keyframes flip {
   0% {
@@ -137,4 +294,117 @@ body {
     transform: scale(1);
     border-color: #878a8c;
   }
+}
+
+/* Instructions button */
+.instructions-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #787c7e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.instructions-button:hover {
+  color: #000;
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+/* Instructions modal */
+.instructions-modal .modal-content {
+  max-width: 550px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* More specific selector to override the modal button styles */
+.modal button.close-button {
+  background: transparent;
+  color: #333;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.modal button.close-button:hover {
+  background-color: #f0f0f0;
+  color: #000;
+  transform: none;
+  box-shadow: none;
+}
+
+.instructions h2 {
+  font-size: 1.4rem;
+  margin: 1.5rem 0 1rem;
+  color: #333;
+}
+
+.instructions p,
+.instructions li {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.instructions ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0 1.5rem;
+  text-align: left;
+}
+
+.instructions .examples {
+  margin: 1.5rem 0;
+}
+
+.instructions .example {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.instructions .example .row {
+  margin-bottom: 0.5rem;
+}
+
+.instructions .example .row > div {
+  width: 40px;
+  height: 40px;
+  font-size: 1.4rem;
+  line-height: 40px;
+}
+
+.instructions .example p {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.instructions .final-note {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  font-style: italic;
+  text-align: center;
 }
