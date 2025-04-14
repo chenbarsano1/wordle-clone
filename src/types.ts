@@ -1,6 +1,8 @@
+export type KeyColor = 'grey' | 'green' | 'yellow'
+
 export type LetterObject = {
   key: string
-  color: 'grey' | 'green' | 'yellow'
+  color: KeyColor
 }
 
 export type Letter = {

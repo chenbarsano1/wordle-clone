@@ -84,6 +84,21 @@ body {
   cursor: pointer;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+.keypad > div.green {
+  background: #6aaa64;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+.keypad > div.yellow {
+  background: #c9b458;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+.keypad > div.grey {
+  background: #787c7e;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
 
 /* keyframe animations */
 @keyframes flip {

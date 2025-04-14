@@ -1,11 +1,21 @@
 import { letters } from '../data/letters'
+import { KeyColor } from '../types'
 
-function Keypad() {
+type KeypadProps = {
+  usedKeys: Record<string, KeyColor>
+}
+
+function Keypad({ usedKeys }: KeypadProps) {
   return (
     <div className="keypad">
-      {letters.map((letter) => (
-        <div key={letter.key}>{letter.key}</div>
-      ))}
+      {letters.map((letter) => {
+        const color = usedKeys[letter.key]
+        return (
+          <div key={letter.key} className={color}>
+            {letter.key}
+          </div>
+        )
+      })}
     </div>
   )
 }
