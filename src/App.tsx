@@ -16,10 +16,11 @@ function App() {
   return (
     <>
       <div className="App">
-        <h1 className='wordle-logo'>Wordle</h1>
+        <h1 className="wordle-logo">Wordle</h1>
         <Instructions />
         {solution && <Wordle solution={solution} />}
       </div>
+      <ToastContainer position="top-right" autoClose={1000} />
     </>
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { KeyColor, LetterObject } from '../types'
+import { toast } from 'react-toastify'
 
 const useWordle = (solution: String) => {
   const [turn, setTurn] = useState<number>(0)
@@ -92,17 +93,17 @@ const useWordle = (solution: String) => {
     if (key === 'Enter') {
       // only add guess if the game is not over
       if (turn > 5) {
-        console.log('You have used all your guesses')
+        toast.error('You have used all your guesses')
         return
       }
       // do not allow duplicate guesses
       if (history.includes(currentGuess)) {
-        console.log('You have already guessed that word')
+        toast.warning('You have already guessed that word')
         return
       }
       // check word is 5 letters long
       if (currentGuess.length !== 5) {
-        console.log('Word must be 5 letters long')
+        toast.info('Word must be 5 letters long')
         return
       }
       const formatted = formatGuess()
