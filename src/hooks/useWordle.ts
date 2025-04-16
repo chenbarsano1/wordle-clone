@@ -56,33 +56,36 @@ const useWordle = (solution: String) => {
     setHistory((prevHistory) => [...prevHistory, currentGuess])
     setTurn((prevTurn) => prevTurn + 1)
 
-    setUsedKeys((prevUsedKeys) => {
-      const newUsedKeys = { ...prevUsedKeys }
+    setTimeout(() => {
+      setUsedKeys((prevUsedKeys) => {
+        const newUsedKeys = { ...prevUsedKeys }
 
-      formattedGuess.forEach((l) => {
-        const currentColor = newUsedKeys[l.key]
+        formattedGuess.forEach((l) => {
+          const currentColor = newUsedKeys[l.key]
 
-        if (l.color === 'green') {
-          newUsedKeys[l.key] = 'green'
-          return
-        }
+          if (l.color === 'green') {
+            newUsedKeys[l.key] = 'green'
+            return
+          }
 
-        if (l.color === 'yellow' && currentColor !== 'green') {
-          newUsedKeys[l.key] = 'yellow'
-          return
-        }
+          if (l.color === 'yellow' && currentColor !== 'green') {
+            newUsedKeys[l.key] = 'yellow'
+            return
+          }
 
-        if (
-          l.color === 'grey' &&
-          currentColor !== 'green' &&
-          currentColor !== 'yellow'
-        ) {
-          newUsedKeys[l.key] = 'grey'
-          return
-        }
+          if (
+            l.color === 'grey' &&
+            currentColor !== 'green' &&
+            currentColor !== 'yellow'
+          ) {
+            newUsedKeys[l.key] = 'grey'
+            return
+          }
+        })
+        return newUsedKeys
       })
-      return newUsedKeys
-    })
+    }, 1800)
+
     setCurrentGuess('')
   }
 
