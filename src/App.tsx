@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { wordList } from './data/wordList'
 import Wordle from './components/Wordle'
 import Instructions from './components/Instructions'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   const [solution, setSolution] = useState<string | null>(null)

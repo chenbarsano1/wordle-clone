@@ -7,7 +7,7 @@ const useWordle = (solution: String) => {
   const [guesses, setGuesses] = useState<LetterObject[][]>(
     Array.from({ length: 6 }, () => [])
   )
-  const [history, setHistory] = useState<string[]>(['hello', 'ninja'])
+  const [history, setHistory] = useState<string[]>([])
   const [isCorrect, setIsCorrect] = useState<boolean>(false)
   const [usedKeys, setUsedKeys] = useState<Record<string, KeyColor>>({})
 

@@ -31,12 +31,18 @@ export default function Wordle({ solution }: WordleProps) {
     }
   }, [handleKeyup, isCorrect, turn])
 
+  // Function to handle key clicks from the Keypad component
+  const handleClick = (key: string) => {
+    const fakeKeyupEven = { key } as KeyboardEvent
+    handleKeyup(fakeKeyupEven)
+  }
+
   return (
     <div>
       {/* <div>Solution - {solution}</div>
       <div>Current Guess - {currentGuess}</div> */}
       <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />
-      <Keypad usedKeys={usedKeys} />
+      <Keypad usedKeys={usedKeys} onKeyClick={handleClick}/>
       {showModal && (
         <Modal isCorrect={isCorrect} turn={turn} solution={solution} />
       )}

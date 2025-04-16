@@ -20,6 +20,7 @@ export const letters: Letter[] = [
   { key: 'j' },
   { key: 'k' },
   { key: 'l' },
+  { key: 'Enter' },
   { key: 'z' },
   { key: 'x' },
   { key: 'c' },
@@ -27,4 +28,5 @@ export const letters: Letter[] = [
   { key: 'b' },
   { key: 'n' },
   { key: 'm' },
+  { key: 'Backspace' },
 ]
