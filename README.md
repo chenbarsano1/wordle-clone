@@ -1,54 +1,19 @@
-# React + TypeScript + Vite
+# 🟩 Wordle Clone 🎉
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun and challenging Wordle clone built with React +  Typescript! <br> Try to guess the 5-letter word within 6 attempts.<br> Inspired by the viral original, this version is completely browser-based and mobile-friendly.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Play it here: https://wordle-clone-46a9u7a9y-chen-barsanos-projects.vercel.app/
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ⚛️ **React + TypeScript** – strongly typed components for better developer experience
+- 🎨 **CSS** – all styles written in plain CSS
+- 🌐 **Vercel** – for seamless deployment and hosting
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 📸 Demo
+![instructions-ezgif com-crop](https://github.com/user-attachments/assets/bd2f2dac-e769-4376-aebb-1ea12492fec5)
+![game-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/a6ea6857-3bb0-434d-ac35-f374271286c0)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
