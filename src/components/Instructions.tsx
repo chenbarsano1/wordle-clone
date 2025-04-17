@@ -17,7 +17,7 @@ function InstructionsModal({ isOpen, toggleModal }: InstructionsProps) {
         </button>
 
         <div className="instructions">
-          <p>Guess the Wordle in 6 tries.</p>
+          <p>Guess the <b>Wordle</b> in 6 tries.</p>
           <ul>
             <li>Each guess must be a 5-letter word.</li>
             <li>
